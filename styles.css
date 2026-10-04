@@ -1,0 +1,22 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#0f1720;color:#f5f7fa}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:#111c29;border-bottom:1px solid #243447}
+.brand{font-size:22px;font-weight:800}
+main{max-width:900px;margin:0 auto;padding:20px}
+.card,.stat,.hero{background:#162333;border:1px solid #26384c;border-radius:16px;padding:18px;margin-bottom:16px}
+.hero{padding:22px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat span{display:block;color:#9fb0c3;font-size:13px;margin-bottom:8px}
+.stat b{font-size:22px}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+button,input{font:inherit}
+button{border:0;border-radius:10px;padding:12px 15px;cursor:pointer}
+.primary{background:#22c55e;color:#07130b;font-weight:700}
+.secondary{background:#334155;color:#fff}
+input{width:100%;padding:12px;margin:7px 0;background:#0d1722;color:#fff;border:1px solid #33465b;border-radius:10px}
+button+button{margin-left:6px}
+.hidden{display:none!important}
+#authMsg{min-height:20px;color:#fbbf24}
+.item{padding:12px;border:1px solid #30445a;border-radius:10px;margin:8px 0;background:#101b28}
+.small{color:#9fb0c3;font-size:13px}
+@media(max-width:650px){main{padding:14px}.grid{grid-template-columns:1fr}.tabs button{flex:1}}
