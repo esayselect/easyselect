@@ -1,1 +1,63 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b63f6"><link rel="manifest" href="manifest.webmanifest"><title>Easy Select</title><style>*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f7fb;color:#172033}header{background:#fff;padding:18px;text-align:center;border-bottom:1px solid #ddd}.logo{font-size:30px;font-weight:800;color:#0b63f6}.wrap{max-width:900px;margin:25px auto;padding:16px}.card{background:#fff;border-radius:18px;padding:22px;margin:14px 0;box-shadow:0 8px 30px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}button{border:0;border-radius:10px;padding:12px 18px;background:#0b63f6;color:#fff;font-weight:700}button.secondary{background:#eef4ff;color:#0b63f6}input{width:100%;padding:13px;border:1px solid #ccd2dc;border-radius:10px;margin:7px 0 12px}.hidden{display:none}.small{color:#687386}</style></head><body><header><div class="logo">ES</div><b>Easy Select</b></header><main class="wrap"><section id="home" class="card"><h1>Easy Select</h1><p>Product Sell & Lead Generation Platform</p><div class="grid"><div class="card"><h2>👤 Member</h2><button onclick="show('member')">Member Login</button></div><div class="card"><h2>🔐 Admin</h2><button onclick="show('admin')">Admin Login</button></div></div></section><section id="member" class="card hidden"><h2>Member Login</h2><input placeholder="Member ID"><input type="password" placeholder="Password"><button onclick="show('memberDash')">Login</button> <button class="secondary" onclick="show('home')">Back</button></section><section id="admin" class="card hidden"><h2>Admin Login</h2><input placeholder="Admin Email"><input type="password" placeholder="Password"><button onclick="show('adminDash')">Login</button> <button class="secondary" onclick="show('home')">Back</button><p class="small">Production-এ server-side authentication লাগবে।</p></section><section id="memberDash" class="card hidden"><h2>Member Dashboard</h2><div class="grid"><div class="card">💰 Total Earnings<h2>৳0</h2></div><div class="card">💵 Available<h2>৳0</h2></div><div class="card">⏳ Pending<h2>৳0</h2></div></div><p>🛍️ Product Sell &nbsp; 🎯 Lead Generation &nbsp; 💳 bKash Withdraw</p><button class="secondary" onclick="location.reload()">Logout</button></section><section id="adminDash" class="card hidden"><h2>Admin Dashboard</h2><div class="grid"><div class="card">Members<h2>0</h2></div><div class="card">Active Members<h2>0</h2></div><div class="card">Payment Requests<h2>0</h2></div></div><p>Members • Products • Leads • Earnings • bKash Requests • Reports</p><button class="secondary" onclick="location.reload()">Logout</button></section></main><script>function show(id){document.querySelectorAll('section').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden')}if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');</script></body></html>
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Easy Select</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header><div class="brand">Easy Select</div><button id="logoutBtn" class="hidden">Logout</button></header>
+  <main>
+    <section id="authView" class="card">
+      <h1>Easy Select</h1>
+      <p>Product Selling & Lead Generation Platform</p>
+      <div class="tabs"><button id="memberTab">Member</button><button id="adminTab">Admin</button></div>
+      <input id="email" type="email" placeholder="Email address">
+      <input id="password" type="password" placeholder="Password">
+      <input id="name" class="signup-only" placeholder="Full name">
+      <button id="loginBtn" class="primary">Sign In</button>
+      <button id="signupBtn" class="secondary signup-only">Create Member Account</button>
+      <p id="authMsg"></p>
+    </section>
+
+    <section id="memberView" class="hidden">
+      <div class="hero"><h2>Member Dashboard</h2><p id="welcome"></p></div>
+      <div class="grid">
+        <div class="stat"><span>Available Balance</span><b id="balance">৳0</b></div>
+        <div class="stat"><span>Total Earnings</span><b id="earnings">৳0</b></div>
+        <div class="stat"><span>ID Status</span><b id="status">Inactive</b></div>
+      </div>
+      <div class="card">
+        <h3>Product Sell</h3><div id="products">Loading...</div>
+      </div>
+      <div class="card">
+        <h3>Lead Generation</h3>
+        <p>Available lead tasks will appear here.</p>
+        <div id="leads">Loading...</div>
+      </div>
+      <div class="card">
+        <h3>ID Activation</h3>
+        <p>Activation request: ৳500. Send payment/reference details to admin for verification.</p>
+        <input id="activationRef" placeholder="bKash Transaction ID / Reference">
+        <button id="activationBtn" class="primary">Submit Activation Request</button>
+      </div>
+      <div class="card">
+        <h3>bKash Withdrawal</h3>
+        <input id="withdrawAmount" type="number" placeholder="Amount">
+        <input id="bkashNumber" placeholder="bKash number">
+        <button id="withdrawBtn" class="primary">Request Withdrawal</button>
+      </div>
+    </section>
+
+    <section id="adminView" class="hidden">
+      <div class="hero"><h2>Admin Dashboard</h2><p>Manage members, activations, earnings and withdrawals.</p></div>
+      <div class="card"><h3>Members</h3><div id="members">Loading...</div></div>
+      <div class="card"><h3>Activation Requests</h3><div id="activations">Loading...</div></div>
+      <div class="card"><h3>Withdrawal Requests</h3><div id="withdrawals">Loading...</div></div>
+    </section>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
