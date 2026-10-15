@@ -1,2 +1,1 @@
-window.SUPABASE_URL = "https://kiiriwnqcmhelsaddxod.supabase.co";
-window.SUPABASE_PUBLISHABLE_KEY = "sb_publishable_cKcmfNByI_zmRZVhlExWvA_8Swpy-Tp";
+sb_secret_tjj_yvXAmDEDrAo6-MI0Ww_U9wCBZv-sb_publishable_Tt_fp9E7bsFyfnZpI-TDUA_un016PrZ
