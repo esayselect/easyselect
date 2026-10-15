@@ -1,2 +1,2 @@
-window.SUPABASE_URL = 'তোমার_Supabase_Project_URL';
-window.SUPABASE_PUBLISHABLE_KEY = 'তোমার_sb_publishable_কি';
+window.SUPABASE_URL = 'https://kiiriwnqcmhelsaddxod.supabase.co';
+window.SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_cKcmfNByI_zmRZVhlExWvA_8Swpy-Tp';
