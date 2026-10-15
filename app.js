@@ -1,40 +1,4 @@
-const script = document.createElement('script');
-script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
-script.onload = boot;
-script.onerror = () => alert('Supabase library load হয়নি। ইন্টারনেট পরীক্ষা করো।');
-document.head.appendChild(script);
-
-let db = null;
-let mode = 'member';
-let user = null;
-
-const $ = id => document.getElementById(id);
-
-function show(id, visible = true) {
-  $(id).classList.toggle('hidden', !visible);
-}
-
-function msg(text, ok = false) {
-  $('authMsg').textContent = text;
-  $('authMsg').className = ok ? 'ok' : 'bad';
-}
-
-function esc(value) {
-  return String(value ?? '').replace(/[&<>"']/g, c => ({
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#39;'
-  })[c]);
-}
-
-function money(value) {
-  return '৳' + Number(value || 0).toFixed(2);
-}
-
-async function boot() {
-  const url = window.SUPABASE_URL;
+const url = window.SUPABASE_URL;
   const key = window.SUPABASE_PUBLISHABLE_KEY;
 
   if (!url || !key || key.includes('তোমার_') ||
